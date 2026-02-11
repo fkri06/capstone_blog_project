@@ -19,6 +19,18 @@
 
         <main class="main-container">
             <!-- list of articles -->
+            <% if (locals.blogContents) { %>
+
+                <% for( let i=0; i < blogContents.length; i++ ) { %>
+                    <ul>
+                        <li><a href="/articles/<%= i %>">
+                                <%= blogContents[i].title %>
+                            </a></li>
+                    </ul>
+                    <% } %>
+
+                        <% } else { %>
+                            <% } %>
         </main>
         <%- include('partials/footer.ejs') %>
     </body>
