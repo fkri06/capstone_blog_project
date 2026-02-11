@@ -35,3 +35,35 @@ footer {
 main {
     height: 80vh;
 }
+
+input,
+label,
+textarea {
+    margin: 0px 15px;
+    display: block;
+}
+
+form {
+    margin: 15px 0 20px 0;
+}
+
+input[name='contentBox'] {
+    width: 500px;
+    height: 500px;
+}
+
+input[type='submit'] {
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+input[type='submit']:hover {
+    background-color: #3b89ff;
+}
