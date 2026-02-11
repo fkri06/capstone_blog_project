@@ -33,6 +33,13 @@ app.get("/articles/:article_id", (req, res) => {
     res.render('articles.ejs', { title: blogContents[article_id].title, article_id: article_id, articleContents: blogContents[article_id].content });
 });
 
+app.get("/editBlog/:article_id", (req, res) => {
+    const article_id = req.params.article_id;
+    const articleTitle = blogContents[article_id].title;
+    const articleContent = blogContents[article_id].content;
+    res.render("editBlog.ejs", { title: articleTitle, content: articleContent });
+});
+
 app.listen(port, () => {
     console.log(`Server is runin on port ${port}`);
 });
