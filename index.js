@@ -9,6 +9,10 @@ let blogContents = [];
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+function cleanupPost(blogContent) {
+    return blogContent.split("\n").filter(content => content !== '\r' && content !== '');
+}
+
 app.get("/", (req, res) => {
     res.render('index.ejs', { blogContents: blogContents });
 });
@@ -22,8 +26,7 @@ app.post("/createBlog", (req, res) => {
 
     // split the paragraphs by checking a new line and add it to array of strings,
     // then remove any '\r' and empty string.
-    let paragraphs = req.body.contentBox.split("\n");
-    paragraphs = paragraphs.filter(content => content !== '\r' && content !== '');
+    let paragraphs = cleanupPost(req.body.contentBox);
     blogContents.push({ title: title, content: paragraphs });
     res.redirect("/");
 });
