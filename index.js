@@ -43,6 +43,17 @@ app.get("/editBlog/:article_id", (req, res) => {
     res.render("editBlog.ejs", { article_id: article_id, title: articleTitle, content: articleContent });
 });
 
+app.post("/editBlog/:article_id", (req, res) => {
+    const article_id = parseInt(req.params.article_id);
+    const title = req.body.titleBox;
+    const paragraphs = cleanupPost(req.body.contentBox);
+
+    // update
+    blogContents[article_id] = { title: title, content: paragraphs }
+    res.redirect("/");
+});
+
+
 app.listen(port, () => {
     console.log(`Server is runin on port ${port}`);
 });
