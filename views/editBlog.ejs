@@ -18,7 +18,7 @@
             <h2>
                 Edit <%= title %>
             </h2>
-            <form action="/editBlog" method="POST">
+            <form action="/editBlog/<%= article_id %>" method="POST">
                 <label for="titleBox">Title</label>
                 <input id="titleBox" type="text" name="titleBox" value="<%= title %>">
 

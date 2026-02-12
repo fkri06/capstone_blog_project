@@ -40,7 +40,7 @@ app.get("/editBlog/:article_id", (req, res) => {
     const article_id = req.params.article_id;
     const articleTitle = blogContents[article_id].title;
     const articleContent = blogContents[article_id].content;
-    res.render("editBlog.ejs", { title: articleTitle, content: articleContent });
+    res.render("editBlog.ejs", { article_id: article_id, title: articleTitle, content: articleContent });
 });
 
 app.listen(port, () => {
