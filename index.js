@@ -53,6 +53,12 @@ app.post("/editBlog/:article_id", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/deleteBlog/:article_id", (req, res) => {
+    const article_id = parseInt(req.params.article_id);
+    // delete a blog post
+    blogContents.splice(article_id, 1);
+    res.redirect("/");
+});
 
 app.listen(port, () => {
     console.log(`Server is runin on port ${port}`);
